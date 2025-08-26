@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('AdminLTE/dist/img/IconoAcuaponico.png') }}" type="image/x-icon">
+    <link rel="icon" href="<?php echo e(asset('AdminLTE/dist/img/IconoAcuaponico.png')); ?>" type="image/x-icon">
     <title>Gestión de Unidad de Cultivos</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('AdminLTE/plugins/fontawesome-free/css/all.min.css')); ?>">
     <!-- OverlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')); ?>">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('modules/acuaponico/css/styles.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('AdminLTE/dist/css/adminlte.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('modules/acuaponico/css/styles.css')); ?>">
 
     <!-- Scripts cargados de forma diferida -->
 
-    <link rel="icon" href="{{ secure_asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="<?php echo e(secure_asset('favicon.ico')); ?>" type="image/x-icon">
 
     <style>
     </style>
@@ -32,53 +32,53 @@
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <ul class="navbar-nav d-flex flex-row">
                 <li class="nav-item d-none d-sm-inline-block me-4">
-                    <a href="{{ route('cefa.home') }}"
+                    <a href="<?php echo e(route('cefa.home')); ?>"
                         class="nav-link text-white"
                         style="font-size: 20px; position: relative;">
                         Inicio
                     </a>
                 </li>
-                @auth
-                @if(checkRol('acuaponico.admin'))
+                <?php if(auth()->guard()->check()): ?>
+                <?php if(checkRol('acuaponico.admin')): ?>
                 <li class="nav-item d-none d-sm-inline-block me-4">
-                    <a href="{{ route('acuaponico.admin.welcome') }}"
-                        class="nav-link @if(Route::is('acuaponico.admin.*')) active @endif"
+                    <a href="<?php echo e(route('acuaponico.admin.welcome')); ?>"
+                        class="nav-link <?php if(Route::is('acuaponico.admin.*')): ?> active <?php endif; ?>"
                         style="color: white; font-size: 20px; position: relative;">
                         Administrador
                     </a>
                 </li>
-                @endif
-                @if(checkRol('acuaponico.pasante'))
+                <?php endif; ?>
+                <?php if(checkRol('acuaponico.pasante')): ?>
                 <li class="nav-item d-none d-sm-inline-block me-4">
-                    <a href="{{ route('acuaponico.pasante.welcomepas') }}"
-                        class="nav-link @if(Route::is('acuaponico.pasante.*')) active @endif"
+                    <a href="<?php echo e(route('acuaponico.pasante.welcomepas')); ?>"
+                        class="nav-link <?php if(Route::is('acuaponico.pasante.*')): ?> active <?php endif; ?>"
                         style="color: white; font-size: 20px; position: relative;">
                         Pasante
                     </a>
                 </li>
-                @endif
-                @endauth
+                <?php endif; ?>
+                <?php endif; ?>
             </ul>
 
-            @guest
-            <a href="{{ route('login') }}" class="btn text-white btn-lg"
+            <?php if(auth()->guard()->guest()): ?>
+            <a href="<?php echo e(route('login')); ?>" class="btn text-white btn-lg"
                 style="font-size: 20px; position: relative;">
                 Iniciar Sesión
             </a>
-            @else
+            <?php else: ?>
             <!-- Botón de cerrar sesión -->
-            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                @csrf
+            <form action="<?php echo e(route('logout')); ?>" method="POST" style="display: inline;">
+                <?php echo csrf_field(); ?>
                 <button type="submit" class="btn btn-link nav-link" style="color: white;">
                     <i class="fas fa-sign-out-alt" style="color: white"></i>
                 </button>
             </form>
-            @endguest
+            <?php endif; ?>
         </div>
     </nav>
 
     <!-- Contenido principal -->
-    <div class="container-fluid" style="background-image: url('{{ asset('AdminLTE/dist/img/fondoaco.jpg') }}'); 
+    <div class="container-fluid" style="background-image: url('<?php echo e(asset('AdminLTE/dist/img/fondoaco.jpg')); ?>'); 
             background-size: cover; background-attachment: fixed; background-position: center; min-height: 100vh; 
             display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <div class="w-100">
@@ -160,7 +160,7 @@
 
                         <!-- Imagen central -->
                         <div class="w-100 text-center my-4" style="margin-left: 9.5%;">
-                            <img src="{{ asset('AdminLTE/dist/img/acoun.png') }}" class="imagen-central"
+                            <img src="<?php echo e(asset('AdminLTE/dist/img/acoun.png')); ?>" class="imagen-central"
                                 style="max-width: 100%; margin-left: -50%; margin-top: -10%;">
                         </div>
 
@@ -352,7 +352,7 @@
                         <div class="row g-0">
                             <!-- Columna izquierda con imagen ampliada -->
                             <div class="col-md-7">
-                                <img src="{{ asset('/AdminLTE/dist/img/fertilizanteacuapon.jpeg') }}"
+                                <img src="<?php echo e(asset('/AdminLTE/dist/img/fertilizanteacuapon.jpeg')); ?>"
                                     class="img-fluid h-100 w-100 object-fit-cover"
                                     alt="Sistema acuapónico"
                                     style="min-height: 400px; object-position: center;">
@@ -445,7 +445,7 @@
                     <div class="modal-body p-4">
                         <!-- Imagen destacada centrada -->
                         <div class="text-center mb-4">
-                            <img src="{{ asset('/AdminLTE/dist/img/riegoacopon.jpg') }}"
+                            <img src="<?php echo e(asset('/AdminLTE/dist/img/riegoacopon.jpg')); ?>"
                                 alt="Purificación acuapónica"
                                 class="img-fluid rounded shadow-sm"
                                 style="max-height: 250px; object-fit: cover;">
@@ -537,7 +537,7 @@
                     <div class="modal-body p-4">
                         <!-- Imagen central con efecto flotante -->
                         <div class="text-center mb-4 position-relative" style="height: 250px;">
-                            <img src="{{ asset('/AdminLTE/dist/img/cicloacuaponico.jpg') }}"
+                            <img src="<?php echo e(asset('/AdminLTE/dist/img/cicloacuaponico.jpg')); ?>"
                                 alt="Diagrama del ciclo acuapónico"
                                 class="img-fluid rounded-4 shadow-lg border border-3" style="border-color: #71ccef !important; max-height: 100%; width: auto; object-fit: contain; animation: float 6s ease-in-out infinite;">
                             <!-- Puntos interactivos -->
@@ -670,15 +670,15 @@
             </div>
         </footer>
         <!-- Scripts -->
-        <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/dist/js/adminlte.js') }}"></script>
-        <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+        <script src="<?php echo e(asset('AdminLTE/plugins/jquery/jquery.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('AdminLTE/plugins/jquery-ui/jquery-ui.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('AdminLTE/dist/js/adminlte.js')); ?>"></script>
+        <script src="<?php echo e(asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('AdminLTE/dist/js/adminlte.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('AdminLTE/plugins/bootstrap/js/bootstrap.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('AdminLTE/plugins/sweetalert2/sweetalert2.all.min.js')); ?>"></script>
     </div>
 </body>
 
-</html>
+</html><?php /**PATH C:\laragon\www\sicefa\Modules/ACUAPONICO\Resources/views/layouts/masterusers.blade.php ENDPATH**/ ?>
