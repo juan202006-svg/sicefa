@@ -406,6 +406,12 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link" href="{{ asset('modules/acuaponico/Manual/Manual_Usuario_GSA.pdf')  }}" title="ver manual de Usuario" style="color: white;">
+                    <i class="fas fa-question"></i>
+                    <span class="d-none d-sm-inline ml-2">Ayuda</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ asset('modules/acuaponico/Manual/Manual_Usuario_GSA.pdf') }}" download title="Manual de Usuario" style="color: white;">
                     <i class="fas fa-book-open"></i>
                     <span class="d-none d-sm-inline ml-2">Manual</span>
@@ -421,7 +427,7 @@
                     @csrf
                     <button type="submit" class="btn btn-link nav-link" title="Cerrar sesión">
                         <i class="fas fa-sign-out-alt"></i>
-                        <span class="d-none d-sm-inline ml-2">Cerrar sesion</span>
+                        <span class="d-none d-sm-inline ml-2"></span>
                     </button>
                 </form>
             </li>
