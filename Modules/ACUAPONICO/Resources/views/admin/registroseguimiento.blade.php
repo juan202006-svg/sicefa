@@ -8,7 +8,7 @@
 <div class="container-fluid px-4" style="width: 93%; margin-top: 5%; margin-left: 5%;">
     <!-- Header con gradiente y sombra -->
     <div class="container mt-4">
-        <div class="card shadow-lg border-0" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+        <div class="card shadow-lg border-0" style="background: linear-gradient(135deg, #71ccef 0%, #71ccef 100%);">
             <div class="card-body py-4">
                 <div class="d-flex justify-content-between align-items-center mb-3 animate__animated animate__fadeInDown">
                     <h1 class="h2 mb-0 text-white fw-bold text-center w-100" style="font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
@@ -22,10 +22,10 @@
     <!-- Tarjeta principal con diseño moderno -->
     <div class="card shadow-lg border-0 mt-4 animate__animated animate__fadeInUp" style="border-radius: 15px; overflow: hidden;">
         <div class="card-header py-3 d-flex justify-content-between align-items-center" style="background: linear-gradient(to right, #f8f9fc, #e3e6f0); border-bottom: 1px solid #e3e6f0;">
-            <h5 class="mb-0 text-success fw-semibold">
+            <h5 class="mb-0 text-primary fw-semibold">
                 <i class="fas fa-list me-2"></i>Lista de Seguimientos de Resiembras
             </h5>
-            <div class="spinner-border text-success" role="status" id="tableSpinner" style="width: 1.5rem; height: 1.5rem;">
+            <div class="spinner-border text-primary" role="status" id="tableSpinner" style="width: 1.5rem; height: 1.5rem;">
                 <span class="visually-hidden">Cargando...</span>
             </div>
         </div>
@@ -33,18 +33,18 @@
         <div class="card-body p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-info-circle text-success me-2"></i>
+                    <i class="fas fa-info-circle text-primary me-2"></i>
                     <small class="text-muted">Total de seguimientos: {{ count($seguimiento_resiembra) }}</small>
                 </div>
-                <button type="button" class="btn btn-success rounded-pill px-4 py-2 fw-medium shadow-sm" data-toggle="modal" data-target="#agregar"
-                    style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); border: none; transition: all 0.3s ease;">
+                <button type="button" class="btn btn-primary rounded-pill px-4 py-2 fw-medium shadow-sm" data-toggle="modal" data-target="#agregar"
+                    style="background: linear-gradient(135deg, #71ccef 0%, #71ccef 100%); border: none; transition: all 0.3s ease;">
                     <i class="fas fa-plus-circle me-2"></i> Nuevo Seguimiento
                 </button>
             </div>
             
             <div class="table-responsive rounded-3 shadow-sm">
                 <table id="seguimientoresiembra" class="table table-hover align-middle mb-0" style="border: 1px solid #e3e6f0;">
-                    <thead class="thead-dark" style="background: linear-gradient(to right, #28a745, #20c997); color: white;">
+                    <thead class="thead-dark" style="background: linear-gradient(to right, #71ccef, #71ccef); color: white;">
                         <tr>
                             <th class="text-center py-3" style="border-right: 1px solid rgba(255,255,255,0.1);">#</th>
                             <th class="py-3" style="border-right: 1px solid rgba(255,255,255,0.1);">Fecha</th>
@@ -142,7 +142,7 @@
 <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="editarLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg" style="overflow: hidden;">
-            <div class="modal-header bg-gradient-success text-white py-3">
+            <div class="modal-header bg-gradient-primary text-white py-3">
                 <h5 class="modal-title fw-bold mb-0" id="editarLabel">
                     <i class="fas fa-edit me-2"></i>
                     Editar Seguimiento Resiembra
@@ -159,7 +159,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-date" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-date" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-calendar me-1"></i>Fecha:
                                 </label>
                                 <input type="date" class="form-control form-control-sm rounded" id="edit-date" name="date" readonly>
@@ -167,7 +167,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-aquaponic_system_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-aquaponic_system_id" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-water me-1"></i>Sistema acuapónico:
                                 </label>
                                 <select class="form-control form-control-sm rounded" id="edit-aquaponic_system_id" name="aquaponic_system_id" required>
@@ -183,7 +183,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-resowing_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-resowing_id" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-seedling me-1"></i>Resiembra:
                                 </label>
                                 <select class="form-control form-control-sm rounded" id="edit-resowing_id" name="resowing_id" required>
@@ -202,7 +202,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-plant_count" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-plant_count" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-leaf me-1"></i>N° Plantas:
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" id="edit-plant_count" name="plant_count" required>
@@ -214,7 +214,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label class="form-label small fw-bold text-success mb-1">
+                                <label class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-palette me-1"></i>Color de hoja:
                                 </label>
                                 <div class="d-flex gap-3 justify-content-between">
@@ -237,7 +237,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-height_cm" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-height_cm" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-ruler-vertical me-1"></i>Altura (cm):
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="height_cm" id="edit-height_cm" step="0.1" required>
@@ -248,7 +248,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="edit-days_elapsed" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-days_elapsed" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-clock me-1"></i>Tiempo (días):
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="days_elapsed" id="edit-days_elapsed" readonly>
@@ -256,7 +256,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="edit-growth" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-growth" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-arrow-up me-1"></i>Crecimiento:
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="growth" id="edit-growth" step="0.1" readonly>
@@ -264,7 +264,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="edit-comparison_percentage" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-comparison_percentage" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-chart-line me-1"></i>Rendimiento (%):
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="comparison_percentage" id="edit-comparison_percentage" step="0.01" readonly>
@@ -272,7 +272,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="edit-mortality" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-mortality" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-skull me-1"></i>Mortalidad:
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="mortality" id="edit-mortality" readonly>
@@ -281,7 +281,7 @@
                     </div>
                     
                     <div class="form-group mb-3">
-                        <label for="edit-notes" class="form-label small fw-bold text-success mb-1">
+                        <label for="edit-notes" class="form-label small fw-bold text-primary mb-1">
                             <i class="fas fa-sticky-note me-1"></i>Novedades:
                         </label>
                         <textarea class="form-control form-control-sm rounded" name="notes" id="edit-notes" rows="2" style="resize: none;"></textarea>
@@ -292,7 +292,7 @@
                     <button type="button" class="btn btn-sm btn-secondary rounded px-3 py-2" data-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-sm btn-success rounded px-3 py-2 shadow">
+                    <button type="submit" class="btn btn-sm btn-primary rounded px-3 py-2 shadow">
                         <i class="fas fa-save me-1"></i>Guardar Cambios
                     </button>
                 </div>
@@ -305,7 +305,7 @@
 <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="agregarLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg" style="overflow: hidden;">
-            <div class="modal-header bg-gradient-success text-white py-3">
+            <div class="modal-header bg-gradient-primary text-white py-3">
                 <h5 class="modal-title fw-bold mb-0" id="agregarLabel">
                     <i class="fas fa-plus-circle me-2"></i>
                     Nuevo Seguimiento Resiembra
@@ -320,7 +320,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="date" class="form-label small fw-bold text-success mb-1">
+                                <label for="date" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-calendar me-1"></i>Fecha:
                                 </label>
                                 <input type="date" name="date" class="form-control form-control-sm rounded" id="date" readonly>
@@ -328,7 +328,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="aquaponic_system_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="aquaponic_system_id" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-water me-1"></i>Sistema acuapónico:
                                 </label>
                                 <select name="aquaponic_system_id" id="aquaponic_system_id" class="form-control form-control-sm rounded" required>
@@ -344,7 +344,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="resowing_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="resowing_id" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-seedling me-1"></i>Resiembra:
                                 </label>
                                 <select name="resowing_id" id="resowing_id" class="form-control form-control-sm rounded" required>
@@ -363,7 +363,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="plant_count" class="form-label small fw-bold text-success mb-1">
+                                <label for="plant_count" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-leaf me-1"></i>N° Plantas:
                                 </label>
                                 <input type="number" name="plant_count" class="form-control form-control-sm rounded" id="plant_count" required>
@@ -375,7 +375,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label class="form-label small fw-bold text-success mb-1">
+                                <label class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-palette me-1"></i>Color de hoja:
                                 </label>
                                 <div class="d-flex gap-3 justify-content-between">
@@ -398,7 +398,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="height_cm" class="form-label small fw-bold text-success mb-1">
+                                <label for="height_cm" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-ruler-vertical me-1"></i>Altura (cm):
                                 </label>
                                 <input type="number" name="height_cm" class="form-control form-control-sm rounded" id="height_cm" step="0.1" required>
@@ -409,7 +409,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="days_elapsed" class="form-label small fw-bold text-success mb-1">
+                                <label for="days_elapsed" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-clock me-1"></i>Tiempo (días):
                                 </label>
                                 <input type="number" name="days_elapsed" class="form-control form-control-sm rounded" id="days_elapsed" readonly>
@@ -417,7 +417,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="growth" class="form-label small fw-bold text-success mb-1">
+                                <label for="growth" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-arrow-up me-1"></i>Crecimiento:
                                 </label>
                                 <input type="number" name="growth" class="form-control form-control-sm rounded" id="growth" step="0.1" readonly>
@@ -425,7 +425,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="comparison_percentage" class="form-label small fw-bold text-success mb-1">
+                                <label for="comparison_percentage" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-chart-line me-1"></i>Rendimiento (%):
                                 </label>
                                 <input type="number" name="comparison_percentage" class="form-control form-control-sm rounded" id="comparison_percentage" step="0.01" readonly>
@@ -433,7 +433,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="mortality" class="form-label small fw-bold text-success mb-1">
+                                <label for="mortality" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-skull me-1"></i>Mortalidad:
                                 </label>
                                 <input type="number" name="mortality" class="form-control form-control-sm rounded" id="mortality" readonly>
@@ -442,7 +442,7 @@
                     </div>
                     
                     <div class="form-group mb-3">
-                        <label for="notes" class="form-label small fw-bold text-success mb-1">
+                        <label for="notes" class="form-label small fw-bold text-primary mb-1">
                             <i class="fas fa-sticky-note me-1"></i>Novedades:
                         </label>
                         <textarea class="form-control form-control-sm rounded" name="notes" id="notes" rows="2" style="resize: none;"></textarea>
@@ -453,7 +453,7 @@
                     <button type="button" class="btn btn-sm btn-secondary rounded px-3 py-2" data-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-sm btn-success rounded px-3 py-2 shadow">
+                    <button type="submit" class="btn btn-sm btn-primary rounded px-3 py-2 shadow">
                         <i class="fas fa-save me-1"></i>Guardar
                     </button>
                 </div>
@@ -502,7 +502,7 @@
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(40, 167, 69, 0.05);
+    background-color: rgba(113, 204, 239, 0.05);
     transform: translateX(5px);
     transition: all 0.3s ease;
 }
@@ -513,15 +513,15 @@
     transition: all 0.3s ease;
 }
 
-.btn-success {
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+.btn-primary {
+    background: linear-gradient(135deg, #71ccef 0%, #71ccef 100%);
     border: none;
 }
 
-.btn-success:hover {
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+.btn-primary:hover {
+    background: linear-gradient(135deg, #71ccef 0%, #71ccef 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+    box-shadow: 0 6px 15px rgba(113, 204, 239, 0.3);
 }
 
 .badge {
@@ -735,7 +735,7 @@
 }
 
 #seguimientoresiembra thead th {
-    background: linear-gradient(to right, #28a745, #20c997);
+    background: linear-gradient(to right, #71ccef, #71ccef);
     border-top: 1px solid #e3e6f0;
     border-bottom: 2px solid #e3e6f0;
     font-weight: 600;
@@ -743,12 +743,12 @@
 }
 
 /* ESTILOS ESPECÍFICOS PARA LOS MODALES MEJORADOS */
-.bg-gradient-success {
-    background: linear-gradient(87deg, #28a745 0, #20c997 100%) !important;
+.bg-gradient-primary {
+    background: linear-gradient(87deg, #71ccef 0, #71ccef 100%) !important;
 }
 
 .btn-modal-save {
-    background: linear-gradient(135deg, #28a745, #20c997);
+    background: linear-gradient(135deg, #71ccef, #71ccef);
     border: none;
     transition: all 0.3s ease;
     position: relative;
@@ -757,7 +757,7 @@
 
 .btn-modal-save:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4) !important;
+    box-shadow: 0 6px 15px rgba(113, 204, 239, 0.4) !important;
 }
 
 .btn-modal-save:active {
@@ -784,8 +784,8 @@
 }
 
 .form-control-sm:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    border-color: #71ccef;
+    box-shadow: 0 0 0 0.2rem rgba(113, 204, 239, 0.25);
 }
 
 /* Mejoras visuales para los modales */
@@ -1273,13 +1273,13 @@
                             background: #f8f9fc;
                             transform: translateY(-2px);
                             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                            color: #28a745;
-                            border-color: #28a745;
+                            color: #71ccef;
+                            border-color: #71ccef;
                         }
                         
                         /* Mejorar el contraste del texto en el botón de cancelar */
                         .swal2-popup.custom-delete-style .swal2-cancel:focus {
-                            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+                            box-shadow: 0 0 0 3px rgba(113, 204, 239, 0.25);
                         }
                         
                         @keyframes pulse-icon {
@@ -1482,7 +1482,7 @@ $(document).ready(function() {
             icon: 'success',
             title: 'Éxito',
             text: '{{ session("success") }}',
-            confirmButtonColor: '#28a745',
+            confirmButtonColor: '#71ccef',
             showClass: {
                 popup: 'animate__animated animate__bounceIn'
             }

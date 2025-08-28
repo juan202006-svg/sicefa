@@ -6,9 +6,9 @@
 
 @section('content10')
 <div class="container-fluid px-4" style="width: 93%; margin-top: 5%; margin-left: 5%;">
-    <!-- Header con gradiente verde -->
+    <!-- Header con gradiente azul -->
     <div class="container mt-4">
-        <div class="card shadow-lg border-0" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+        <div class="card shadow-lg border-0" style="background: linear-gradient(135deg, #71ccef 0%, #71ccef 100%);">
             <div class="card-body py-4">
                 <div class="d-flex justify-content-between align-items-center mb-4 animate__animated animate__fadeInDown">
                     <h1 class="h2 mb-0 text-white fw-bold text-center w-100" style="font-size: 2.2rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
@@ -22,10 +22,10 @@
     <!-- Tarjeta principal -->
     <div class="card shadow-lg border-0 mt-4 animate__animated animate__fadeInUp" style="border-radius: 15px; overflow: hidden;">
         <div class="card-header py-3 d-flex justify-content-between align-items-center" style="background: linear-gradient(to right, #f8f9fc, #e3e6f0); border-bottom: 1px solid #e3e6f0;">
-            <h5 class="mb-0 text-success fw-semibold">
+            <h5 class="mb-0 fw-semibold" style="color: #71ccef;">
                 <i class="fas fa-list me-2"></i>Lista de Seguimientos de Plantas
             </h5>
-            <div class="spinner-border text-success" role="status" id="tableSpinner" style="width: 1.5rem; height: 1.5rem;">
+            <div class="spinner-border" style="color: #71ccef;" role="status" id="tableSpinner" style="width: 1.5rem; height: 1.5rem;">
                 <span class="visually-hidden">Cargando...</span>
             </div>
         </div>
@@ -33,19 +33,19 @@
         <div class="card-body p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-info-circle text-success me-2"></i>
+                    <i class="fas fa-info-circle" style="color: #71ccef;"></i>
                     <small class="text-muted">Total de seguimientos: {{ count($seguimientoPlanta) }}</small>
                 </div>
-                <button type="button" class="btn btn-success rounded-pill px-4 py-2 fw-medium shadow-sm" data-toggle="modal" data-target="#agregar"
-                    style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); border: none; transition: all 0.3s ease;">
+                <button type="button" class="btn rounded-pill px-4 py-2 fw-medium shadow-sm" data-toggle="modal" data-target="#agregar"
+                    style="background: linear-gradient(135deg, #71ccef 0%, #71ccef 100%); border: none; transition: all 0.3s ease;">
                     <i class="fas fa-plus-circle me-2"></i> Nuevo Seguimiento
                 </button>
             </div>
             
             <!-- Contenedor de tabla con scroll horizontal -->
             <div class="table-container" style="overflow-x: auto; width: 100%;">
-                <table id="seguimientoplantatable" class="table table-hover align-middle mb-0" style="min-width: 1200px; border: 1px solid #e3e6f0;">
-                    <thead class="thead-dark" style="background: linear-gradient(to right, #28a745, #20c997); color: white;">
+                <table id="seguimientoplantatable" class="table table-hover align-middle mb-0" style="min-width: 1100px; border: 1px solid #e3e6f0;">
+                    <thead class="thead-dark" style="background: linear-gradient(to right, #71ccef, #71ccef); color: white;">
                         <tr>
                             <th class="text-center py-3" style="border-right: 1px solid rgba(255,255,255,0.1); width: 50px;">#</th>
                             <th class="py-3" style="border-right: 1px solid rgba(255,255,255,0.1); min-width: 100px;">Fecha</th>
@@ -55,7 +55,6 @@
                             <th class="text-center py-3" style="border-right: 1px solid rgba(255,255,255,0.1); min-width: 100px;">Altura (cm)</th>
                             <th class="text-center py-3" style="border-right: 1px solid rgba(255,255,255,0.1); min-width: 100px;">Tonalidad</th>
                             <th class="text-center py-3" style="border-right: 1px solid rgba(255,255,255,0.1); min-width: 110px;">Crecimiento</th>
-                            <th class="text-center py-3" style="border-right: 1px solid rgba(255,255,255,0.1); min-width: 130px;">Rendimiento (%)</th>
                             <th class="text-center py-3" style="border-right: 1px solid rgba(255,255,255,0.1); min-width: 110px;">Mortalidad</th>
                             <th class="text-center py-3" style="min-width: 130px;">Acciones</th>
                         </tr>
@@ -81,15 +80,6 @@
                                 <span class="badge bg-warning rounded-pill px-3 py-2 shadow-sm">{{ $sp->growth }} cm</span>
                             </td>
                             <td class="text-center fw-bold py-3" style="border-right: 1px solid #e3e6f0;">
-                                @if($sp->comparison_percentage >= 80)
-                                <span class="badge bg-success rounded-pill px-3 py-2 shadow-sm">{{ $sp->comparison_percentage }}%</span>
-                                @elseif($sp->comparison_percentage >= 50)
-                                <span class="badge bg-warning rounded-pill px-3 py-2 shadow-sm">{{ $sp->comparison_percentage }}%</span>
-                                @else
-                                <span class="badge bg-danger rounded-pill px-3 py-2 shadow-sm">{{ $sp->comparison_percentage }}%</span>
-                                @endif
-                            </td>
-                            <td class="text-center fw-bold py-3" style="border-right: 1px solid #e3e6f0;">
                                 <span class="badge bg-danger rounded-pill px-3 py-2 shadow-sm">{{ $sp->mortality }}</span>
                             </td>
                             <td class="text-center py-3">
@@ -103,7 +93,6 @@
                                         data-height_cm="{{ $sp->height_cm }}"
                                         data-color_tone="{{ $sp->color_tone }}"
                                         data-growth="{{ $sp->growth }}"
-                                        data-comparison_percentage="{{ $sp->comparison_percentage }}"
                                         data-mortality="{{ $sp->mortality }}"
                                         data-toggle="modal"
                                         data-target="#editar">
@@ -142,7 +131,7 @@
 <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="editarLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg" style="overflow: hidden;">
-            <div class="modal-header bg-gradient-success text-white py-3">
+            <div class="modal-header text-white py-3" style="background: linear-gradient(87deg, #71ccef 0%, #71ccef 100%);">
                 <h5 class="modal-title fw-bold mb-0" id="editarLabel">
                     <i class="fas fa-edit me-2"></i>
                     Editar Seguimiento de Plantas
@@ -160,7 +149,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit_aquaponic_system_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit_aquaponic_system_id" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-water me-1"></i>Sistema Acuapónico:
                                 </label>
                                 <select class="form-control form-control-sm rounded" id="edit_aquaponic_system_id" name="aquaponic_system_id" required style="height: 30%;">
@@ -173,7 +162,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit_tracking_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit_tracking_id" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-seedling me-1"></i>Cultivo en seguimiento:
                                 </label>
                                 <select class="form-control form-control-sm rounded" id="edit_tracking_id" name="tracking_id" required style="height: 30%;">
@@ -187,7 +176,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-plant_count" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-plant_count" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-leaf me-1"></i>N° Plantas:
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" id="edit-plant_count" name="plant_count" required>
@@ -196,7 +185,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-height_cm" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-height_cm" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-ruler-vertical me-1"></i>Altura (cm):
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="height_cm" id="edit-height_cm" required>
@@ -205,7 +194,7 @@
                     </div>
                     
                     <div class="form-group mb-3">
-                        <label class="form-label small fw-bold text-success mb-1 d-block">
+                        <label class="form-label small fw-bold mb-1 d-block" style="color: #71ccef;">
                             <i class="fas fa-palette me-1"></i>Color de hoja:
                         </label>
                         <div class="d-flex justify-content-between align-items-center">
@@ -227,25 +216,17 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-growth" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-growth" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-chart-line me-1"></i>Crecimiento:
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="growth" id="edit-growth" readonly>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="edit-comparison_percentage" class="form-label small fw-bold text-success mb-1">
-                                    <i class="fas fa-percent me-1"></i>Rendimiento (%):
-                                </label>
-                                <input type="number" class="form-control form-control-sm rounded" name="comparison_percentage" id="edit-comparison_percentage" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-3">
-                                <label for="edit-mortality" class="form-label small fw-bold text-success mb-1">
+                                <label for="edit-mortality" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-skull me-1"></i>Mortalidad:
                                 </label>
                                 <input type="number" class="form-control form-control-sm rounded" name="mortality" id="edit-mortality" readonly>
@@ -258,7 +239,7 @@
                     <button type="button" class="btn btn-sm btn-danger rounded px-3 py-2" data-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-sm btn-success rounded px-3 py-2 shadow">
+                    <button type="submit" class="btn btn-sm rounded px-3 py-2 shadow" style="background: linear-gradient(135deg, #71ccef, #71ccef); color: white;">
                         <i class="fas fa-save me-1"></i>Guardar Cambios
                     </button>
                 </div>
@@ -300,7 +281,7 @@
 <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="agregarLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg" style="overflow: hidden;">
-            <div class="modal-header bg-gradient-success text-white py-3">
+            <div class="modal-header text-white py-3" style="background: linear-gradient(87deg, #71ccef 0%, #71ccef 100%);">
                 <h5 class="modal-title fw-bold mb-0" id="agregarLabel">
                     <i class="fas fa-plus-circle me-2"></i>
                     Nuevo Seguimiento de Plantas
@@ -315,7 +296,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="aquaponic_system_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="aquaponic_system_id" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-water me-1"></i>Sistema Acuapónico:
                                 </label>
                                 <select name="aquaponic_system_id" id="aquaponic_system_id" class="form-control form-control-sm rounded" required style="height: 30%;">
@@ -328,7 +309,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="tracking_id" class="form-label small fw-bold text-success mb-1">
+                                <label for="tracking_id" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-seedling me-1"></i>Cultivo en seguimiento:
                                 </label>
                                 <select name="tracking_id" id="tracking_id" class="form-control form-control-sm rounded" required style="height: 30%;">
@@ -342,7 +323,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="plant_count" class="form-label small fw-bold text-success mb-1">
+                                <label for="plant_count" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-leaf me-1"></i>N° Plantas:
                                 </label>
                                 <input type="number" name="plant_count" class="form-control form-control-sm rounded" id="plant_count" required>
@@ -351,7 +332,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="height_cm" class="form-label small fw-bold text-success mb-1">
+                                <label for="height_cm" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-ruler-vertical me-1"></i>Altura (cm):
                                 </label>
                                 <input type="number" name="height_cm" class="form-control form-control-sm rounded" id="height_cm" required>
@@ -360,7 +341,7 @@
                     </div>
                     
                     <div class="form-group mb-3">
-                        <label class="form-label small fw-bold text-success mb-1 d-block">
+                        <label class="form-label small fw-bold mb-1 d-block" style="color: #71ccef;">
                             <i class="fas fa-palette me-1"></i>Color de hoja:
                         </label>
                         <div class="d-flex justify-content-between align-items-center">
@@ -382,25 +363,17 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="growth" class="form-label small fw-bold text-success mb-1">
+                                <label for="growth" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-chart-line me-1"></i>Crecimiento:
                                 </label>
                                 <input type="number" name="growth" class="form-control form-control-sm rounded" id="growth" readonly>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="comparison_percentage" class="form-label small fw-bold text-success mb-1">
-                                    <i class="fas fa-percent me-1"></i>Rendimiento (%):
-                                </label>
-                                <input type="number" name="comparison_percentage" class="form-control form-control-sm rounded" id="comparison_percentage" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-3">
-                                <label for="mortality" class="form-label small fw-bold text-success mb-1">
+                                <label for="mortality" class="form-label small fw-bold mb-1" style="color: #71ccef;">
                                     <i class="fas fa-skull me-1"></i>Mortalidad:
                                 </label>
                                 <input type="number" name="mortality" class="form-control form-control-sm rounded" id="mortality" readonly>
@@ -413,7 +386,7 @@
                     <button type="button" class="btn btn-sm btn-danger rounded px-3 py-2" data-dismiss="modal">
                         <i class="fas fa-times me-1"></i>Cancelar
                     </button>
-                    <button type="submit" class="btn btn-sm btn-success rounded px-3 py-2 shadow">
+                    <button type="submit" class="btn btn-sm rounded px-3 py-2 shadow" style="background: linear-gradient(135deg, #71ccef, #71ccef); color: white;">
                         <i class="fas fa-save me-1"></i>Guardar
                     </button>
                 </div>
@@ -462,7 +435,7 @@
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(40, 167, 69, 0.05);
+    background-color: rgba(113, 204, 239, 0.05);
     transform: translateX(5px);
     transition: all 0.3s ease;
 }
@@ -473,15 +446,15 @@
     transition: all 0.3s ease;
 }
 
-.btn-success {
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+.btn-blue {
+    background: linear-gradient(135deg, #71ccef 0%, #71ccef 100%);
     border: none;
 }
 
-.btn-success:hover {
-    background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+.btn-blue:hover {
+    background: linear-gradient(135deg, #5bbde8, #5bbde8);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+    box-shadow: 0 6px 15px rgba(113, 204, 239, 0.3);
 }
 
 .badge {
@@ -668,7 +641,7 @@
     padding: 5px 10px;
 }
 
-.bs-tooltip-top .arrow::before {
+.btooltip-top .arrow::before {
     border-top-color: #333;
 }
 
@@ -695,7 +668,7 @@
 }
 
 #seguimientoplantatable thead th {
-    background: linear-gradient(to right, #28a745, #20c997);
+    background: linear-gradient(to right, #71ccef, #71ccef);
     border-top: 1px solid #e3e6f0;
     border-bottom: 2px solid #e3e6f0;
     font-weight: 600;
@@ -703,12 +676,12 @@
 }
 
 /* ESTILOS ESPECÍFICOS PARA EL MODAL DE EDICIÓN MEJORADO */
-.bg-gradient-success {
-    background: linear-gradient(87deg, #28a745 0, #20c997 100%) !important;
+.bg-gradient-blue {
+    background: linear-gradient(87deg, #71ccef 0, #71ccef 100%) !important;
 }
 
 .btn-modal-save {
-    background: linear-gradient(135deg, #28a745, #20c997);
+    background: linear-gradient(135deg, #71ccef, #71ccef);
     border: none;
     transition: all 0.3s ease;
     position: relative;
@@ -717,7 +690,7 @@
 
 .btn-modal-save:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4) !important;
+    box-shadow: 0 6px 15px rgba(113, 204, 239, 0.4) !important;
 }
 
 .btn-modal-save:active {
@@ -768,8 +741,8 @@
 }
 
 .form-control-sm:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    border-color: #71ccef;
+    box-shadow: 0 0 0 0.2rem rgba(113, 204, 239, 0.25);
 }
 
 /* Mejoras visuales para los modales */
@@ -824,7 +797,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + .color-circle-modal {
-    border: 3px solid #28a745;
+    border: 3px solid #71ccef;
     transform: scale(1.1);
 }
 
@@ -938,7 +911,6 @@ input[type="radio"]:checked + .color-circle-modal {
                 const plantCount = this.getAttribute('data-plant_count');
                 const heightCm = this.getAttribute('data-height_cm');
                 const growth = this.getAttribute('data-growth');
-                const comparisonPercentage = this.getAttribute('data-comparison_percentage');
                 const mortality = this.getAttribute('data-mortality');
                 const colorTone = this.getAttribute('data-color_tone');
 
@@ -950,7 +922,6 @@ input[type="radio"]:checked + .color-circle-modal {
                     document.getElementById('edit-plant_count').value = plantCount;
                     document.getElementById('edit-height_cm').value = heightCm;
                     document.getElementById('edit-growth').value = growth;
-                    document.getElementById('edit-comparison_percentage').value = comparisonPercentage;
                     document.getElementById('edit-mortality').value = mortality;
 
                     // Preseleccionar el color
@@ -1049,12 +1020,11 @@ input[type="radio"]:checked + .color-circle-modal {
             const editPlantCount = document.getElementById('edit-plant_count');
             const editHeightCm = document.getElementById('edit-height_cm');
             const editGrowth = document.getElementById('edit-growth');
-            const editComparisonPercentage = document.getElementById('edit-comparison_percentage');
             const editMortality = document.getElementById('edit-mortality');
             const errorPlantasEdit = document.getElementById('error-plantas-edit');
 
-            if (!editPlantCount || !editHeightCm || !editGrowth || !editComparisonPercentage || !editMortality || !errorPlantasEdit) {
-                console.error('Uone o más elementos del DOM no están disponibles.');
+            if (!editPlantCount || !editHeightCm || !editGrowth || !editMortality || !errorPlantasEdit) {
+                console.error('Uno o más elementos del DOM no están disponibles.');
                 return false;
             }
 
@@ -1063,9 +1033,6 @@ input[type="radio"]:checked + .color-circle-modal {
 
             const growth = (alturaActual - editAlturaPrevia).toFixed(2);
             editGrowth.value = growth > 0 ? growth : 0;
-
-            const comparisonPercentage = editAlturaPrevia > 0 ? (alturaActual / editAlturaPrevia * 100).toFixed(2) : 0;
-            editComparisonPercentage.value = comparisonPercentage;
 
             const mortality = editPlantasPrevias - actuales > 0 ? editPlantasPrevias - actuales : 0;
             editMortality.value = mortality;
@@ -1190,13 +1157,13 @@ input[type="radio"]:checked + .color-circle-modal {
                             background: #f8f9fc;
                             transform: translateY(-2px);
                             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                            color: #28a745;
-                            border-color: #28a745;
+                            color: #71ccef;
+                            border-color: #71ccef;
                         }
                         
                         /* Mejorar el contraste del texto en el botón de cancelar */
                         .swal2-popup.custom-delete-style .swal2-cancel:focus {
-                            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+                            box-shadow: 0 0 0 3px rgba(113, 204, 239, 0.25);
                         }
                         
                         @keyframes pulse-icon {
@@ -1305,11 +1272,10 @@ input[type="radio"]:checked + .color-circle-modal {
                 const plantCount = document.getElementById('plant_count');
                 const heightCm = document.getElementById('height_cm');
                 const growth = document.getElementById('growth');
-                const comparisonPercentage = document.getElementById('comparison_percentage');
                 const mortality = document.getElementById('mortality');
                 const errorPlantas = document.getElementById('error-plantas');
 
-                if (!plantCount || !heightCm || !growth || !comparisonPercentage || !mortality || !errorPlantas) {
+                if (!plantCount || !heightCm || !growth || !mortality || !errorPlantas) {
                     console.error('Uno o más elementos del DOM no están disponibles.');
                     return;
                 }
@@ -1318,7 +1284,6 @@ input[type="radio"]:checked + .color-circle-modal {
                 const alturaActual = parseFloat(heightCm.value) || 0;
 
                 growth.value = (alturaActual - alturaPrevia).toFixed(2);
-                comparisonPercentage.value = (alturaPrevia > 0 ? (alturaActual / alturaPrevia * 100).toFixed(2) : 0);
                 mortality.value = (plantasPrevias - actuales > 0 ? plantasPrevias - actuales : 0);
 
                 if (actuales > plantasPrevias) {
@@ -1335,7 +1300,7 @@ input[type="radio"]:checked + .color-circle-modal {
         
         // DataTable initialization - DESACTIVAR RESPONSIVE
         $('#seguimientoplantatable').DataTable({
-            responsive: false,  // Esta es la línea clave para desactivar el responsive
+            responsive: false,
             autoWidth: false,
             language: {
                 url: "{{ asset('AdminLTE/plugins/datatables/i18n/es-ES.json') }}"
@@ -1370,7 +1335,7 @@ input[type="radio"]:checked + .color-circle-modal {
             icon: 'success',
             title: 'Éxito',
             text: '{{ session("success") }}',
-            confirmButtonColor: '#28a745',
+            confirmButtonColor: '#71ccef',
             showClass: {
                 popup: 'animate__animated animate__bounceIn'
             }

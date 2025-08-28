@@ -672,7 +672,7 @@
                             <label for="edit-aquaponic_system_id" class="form-label fw-semibold">
                                 <i class="fas fa-water me-2 text-primary"></i>Sistema Acuapónico
                             </label>
-                            <select name="aquaponic_system_id" id="edit-aquaponic_system_id" class="form-control form-select-lg" required>
+                            <select name="aquaponic_system_id" id="edit-aquaponic_system_id" class="form-control form-select-lg" required style="height: 60%;">
                                 <option value="">Seleccione un sistema</option>
                                 @foreach ($systems as $system)
                                 <option value="{{ $system->id }}">{{ $system->name }}</option>
@@ -683,7 +683,7 @@
                             <label for="edit-harvestable" class="form-label fw-semibold">
                                 <i class="fas fa-seedling me-2 text-primary"></i>Cultivo o Resiembre
                             </label>
-                            <select name="harvestable" id="edit-harvestable" class="form-control form-select-lg" required>
+                            <select name="harvestable" id="edit-harvestable" class="form-control form-select-lg" required style="height: 60%;">
                                 <option value="">Primero seleccione un sistema</option>
                             </select>
                             <input type="hidden" name="harvestable_id" id="edit-harvestable_id">
@@ -700,7 +700,7 @@
                             <label for="edit-unit" class="form-label fw-semibold">
                                 <i class="fas fa-balance-scale me-2 text-primary"></i>Unidad de medida
                             </label>
-                            <select name="unit" id="edit-unit" class="form-control form-select-lg" required>
+                            <select name="unit" id="edit-unit" class="form-control form-select-lg" required style="height: 60%;">
                                 <option value="Gramos">Gramos</option>
                                 <option value="Kilogramos">Kilogramos</option>
                             </select>
