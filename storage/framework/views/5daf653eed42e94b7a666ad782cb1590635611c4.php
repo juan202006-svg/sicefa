@@ -166,7 +166,7 @@
                                 <label for="edit-name" class="form-label small fw-bold text-primary mb-1">
                                     <i class="fas fa-tag me-1"></i>Nombre:
                                 </label>
-                                <input type="text" class="form-control form-control-sm rounded" id="edit-name" name="name" readonly>
+                                <input type="text" class="form-control form-control-sm rounded" id="edit-name" name="name" required>
                             </div>
                         </div>
                         <div class="col-md-6">

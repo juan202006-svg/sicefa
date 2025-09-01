@@ -18,7 +18,7 @@ class CreateTrackingsTable extends Migration
             $table->date('date');
             $table->unsignedBigInteger('aquaponic_system_id'); 
             $table->enum('subject_type', ['crop', 'resowing'])->default('crop');
-            $table->unsignedBigInteger('subject_id'); // ID del cultivo o resiembra
+            $table->unsignedBigInteger('subject_id'); 
             $table->integer('days_elapsed')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();

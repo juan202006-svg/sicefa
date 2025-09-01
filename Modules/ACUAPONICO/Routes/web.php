@@ -7,6 +7,7 @@ Route::middleware(['lang'])->group(function () {
         Route::get('/index', 'ACUAPONICOController@index')->name('cefa.acuaponico.index');
         Route::get('/admin/welcome', 'ACUAPONICOController@admin')->name('acuaponico.admin.welcome');
         Route::get('/pasante/welcomepas', 'ACUAPONICOController@pasante')->name('acuaponico.pasante.welcomepas');
+        Route::get('/test-database', 'ACUAPONICOController@testDatabase')->name('acuaponico.test.database');
     });
 });
 
